@@ -1,5 +1,0 @@
-Question: How has worldwide representation based on continent medal winnings changed over time in winter olympics? Is that representation based on sport?
-
-Plan: Stacked bar plot at different years where continents are colored and button to select all or different sport categories.
-
-Data manipulation: Create mapping of country to continent. Sum continent total medals countries. Sum continent medals by sport category.

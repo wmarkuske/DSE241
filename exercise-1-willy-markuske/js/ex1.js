@@ -1,17 +1,3 @@
-<!-- Code from d3-graph-gallery.com -->
-<!DOCTYPE html>
-<meta charset="utf-8">
-
-<!-- Load d3.js & color palette-->
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-
-<!-- Create a div where the graph will take place -->
-<div id="my_dataviz"></div>
-
-
-<script>
-
 // set the dimensions and margins of the graph
 var margin = {top: 50, right: 30, bottom: 40, left: 50},
     width = 1000 - margin.left - margin.right,
@@ -27,12 +13,12 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
+//d3.csv("../data/subregion-medals.csv", function(data) {
+// issue with loading local data call data from github
 d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/ex1/total.csv", function(data) {
 
-  // List of subgroups = header of the csv files = soil condition here
   var subgroups = data.columns.slice(1)
 
-  // List of groups = species here = value of the first column called group -> I show them on the X axis
   var groups = d3.map(data, function(d){return(d.Year)}).keys()
 
   // Add X axis
@@ -72,30 +58,25 @@ d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/ex1/total.csv", 
     .style("text-anchor", "middle")
     .text("Percentage of Medals Won by World Sub-Region at the Winter Olympics");
 
-  // color palette = one color per subgroup
+  // Color palette
   var color = d3.scaleOrdinal()
     .domain(subgroups)
     .range(d3.schemeSet3)
 
-  // Normalize the data -> sum of each group must be 100!
+  // Normalize the data
   console.log(data)
   dataNormalized = []
   data.forEach(function(d){
-    // Compute the total
     tot = 0
     for (i in subgroups){ name=subgroups[i] ; tot += +d[name] }
-    // Now normalize
     for (i in subgroups){ name=subgroups[i] ; d[name] = d[name] / tot * 100}
   })
 
-  //stack the data? --> stack per subgroup
   var stackedData = d3.stack()
     .keys(subgroups)
     (data)
 
-// ----------------
   // Create a tooltip
-  // ----------------
   var tooltip = d3.select("#my_dataviz")
     .append("div")
     .style("opacity", 0)
@@ -106,17 +87,16 @@ d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/ex1/total.csv", 
     .style("border-radius", "5px")
     .style("padding", "10px")
 
-  // Three function that change the tooltip when user hover / move / leave a cell
   var mouseover = function(d) {
     var subgroupName = d3.select(this.parentNode).datum().key;
     var subgroupValue = d.data[subgroupName];
     tooltip
-        .html("subgroup: " + subgroupName + "<br>" + "Value: " + subgroupValue)
+        .html("Subregion: " + subgroupName + "<br>" + "Percentage: " + subgroupValue.toFixed(2))
         .style("opacity", 1)
   }
   var mousemove = function(d) {
     tooltip
-      .style("left", (d3.mouse(this)[0]+90) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+      .style("left", (d3.mouse(this)[0]+90) + "px")
       .style("top", (d3.mouse(this)[1]) + "px")
   }
   var mouseleave = function(d) {
@@ -127,13 +107,11 @@ d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/ex1/total.csv", 
   // Show the bars
   svg.append("g")
     .selectAll("g")
-    // Enter in the stack data = loop key per key = group per group
     .data(stackedData)
     .enter().append("g")
       .attr("fill", function(d) { return color(d.key); })
-      .attr("class", function(d){ return "myRect " + d.key }) // Add a class to each subgroup: their name
+      .attr("class", function(d){ return "myRect " + d.key })
       .selectAll("rect")
-      // enter a second time = loop subgroup per subgroup to add all rectangles
       .data(function(d) { return d; })
       .enter().append("rect")
         .attr("x", function(d) { return x(d.data.Year); })
@@ -145,5 +123,3 @@ d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/ex1/total.csv", 
       .on("mouseleave", mouseleave)
 
 })
-
-</script>

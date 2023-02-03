@@ -4,6 +4,7 @@
 
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
@@ -27,13 +28,13 @@ var svg = d3.select("#my_dataviz")
 
 // Parse the Data
 //d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv", function(data) {
-d3.csv("test.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/ex1/total.csv", function(data) {
 
   // List of subgroups = header of the csv files = soil condition here
   var subgroups = data.columns.slice(1)
 
   // List of groups = species here = value of the first column called group -> I show them on the X axis
-  var groups = d3.map(data, function(d){return(d.group)}).keys()
+  var groups = d3.map(data, function(d){return(d.Year)}).keys()
 
   // Add X axis
   var x = d3.scaleBand()
@@ -54,7 +55,7 @@ d3.csv("test.csv", function(data) {
   // color palette = one color per subgroup
   var color = d3.scaleOrdinal()
     .domain(subgroups)
-    .range(['#e41a1c','#377eb8','#4daf4a'])
+    .range(d3.schemeSet2)
 
   // Normalize the data -> sum of each group must be 100!
   console.log(data)

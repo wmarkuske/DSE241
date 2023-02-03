@@ -15,7 +15,7 @@ var svg = d3.select("#my_dataviz")
 // Parse the Data
 //d3.csv("../data/subregion-medals.csv", function(data) {
 // issue with loading local data call data from github
-d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/ex1/total.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/exercise-1-willy-markuske/data/subregion-medals.csv", function(data) {
 
   var subgroups = data.columns.slice(1)
 

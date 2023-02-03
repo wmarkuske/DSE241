@@ -73,9 +73,9 @@ d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/ex1/total.csv", 
     .text("Percentage of Medals Won by World Sub-Region at the Winter Olympics");
 
   // color palette = one color per subgroup
-  var color = d3.scaleSequential()
+  var color = d3.scaleOrdinal()
     .domain(subgroups)
-    .interpolator(d3.interpolatePuRd):
+    .range(d3.schemeSet3)
 
   // Normalize the data -> sum of each group must be 100!
   console.log(data)
@@ -93,37 +93,6 @@ d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/ex1/total.csv", 
     .keys(subgroups)
     (data)
 
-//  // Add Legend
-//    var legendRect = legend.selectAll('rect').data(color);
-//
-//legendRect.enter()
-//    .append("rect")
-//    .attr("x", w - 65)
-//    .attr("width", 10)
-//    .attr("height", 10);
-//
-//legendRect
-//    .attr("y", function(d, i) {
-//        return i * 20;
-//    })
-//    .style("fill", function(d) {
-//        return d[1];
-//    });
-//
-//var legendText = legend.selectAll('text').data(color);
-//
-//legendText.enter()
-//    .append("text")
-//    .attr("x", w - 52);
-//
-//legendText
-//    .attr("y", function(d, i) {
-//        return i * 20 + 9;
-//    })
-//    .text(function(d) {
-//        return d[0];
-//    });
-  
 // ----------------
   // Create a tooltip
   // ----------------

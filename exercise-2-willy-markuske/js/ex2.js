@@ -15,7 +15,7 @@ var svg = d3.select("#my_dataviz")
 // Parse the Data
 //d3.csv("../data/subregion-medals.csv", function(data) {
 // issue with loading local data call data from github
-d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/exercise-1-willy-markuske/data/subregion-medals.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/exercise-2-willy-markuske/data/subregion-medals.csv", function(data) {
 
   var subgroups = data.columns.slice(1)
 
@@ -61,7 +61,10 @@ d3.csv("https://raw.githubusercontent.com/wmarkuske/DSE241/main/exercise-1-willy
   // Color palette
   var color = d3.scaleOrdinal()
     .domain(subgroups)
-    .range(d3.schemeSet3)
+    //.range(d3.schemeSet3)
+    //.range(d3.schemePaired)
+    //.range(d3.schemeYlGnBu[9])
+    .range(d3.schemeRdYlBu[9])
 
   // Normalize the data
   console.log(data)

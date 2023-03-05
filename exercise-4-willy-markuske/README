@@ -1,0 +1,7 @@
+Willy Markuske - DSE241 Exercise 1
+
+This visualization shows the percentage of medals won by subregions defined by the UN geoscheme for the Winter Olympics from 1924 to 2006.
+
+To view the visualization open the index.html file in a supported browser.
+
+The user can highlight different bars by mousing over them to show a tooltip of the subregion name and percentange of medals won by that subregion for the year highlighted.

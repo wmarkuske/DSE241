@@ -1,7 +1,9 @@
-Willy Markuske - DSE241 Exercise 1
+Willy Markuske - DSE241 Exercise 4
 
-This visualization shows the percentage of medals won by subregions defined by the UN geoscheme for the Winter Olympics from 1924 to 2006.
+This visualization shows dominance network observed in a population of bighorn sheep.
 
 To view the visualization open the index.html file in a supported browser.
 
-The user can highlight different bars by mousing over them to show a tooltip of the subregion name and percentange of medals won by that subregion for the year highlighted.
+The user can highlight a node to make the links connected to that node more apparent.
+
+Exercise-4.ipynb contains code that takes the originally provided data and generate the json file read by the javascript code.

@@ -8,115 +8,143 @@
     "nodes": [
         {
             "age": 8,
-            "id": 1
+            "id": 1,
+            "dominates": 5
         },
         {
             "age": 8,
-            "id": 2
+            "id": 2,
+            "dominates": 14
         },
         {
             "age": 4,
-            "id": 3
+            "id": 3,
+            "dominates": 18
         },
         {
             "age": 7,
-            "id": 4
+            "id": 4,
+            "dominates": 17
         },
         {
             "age": 8,
-            "id": 5
+            "id": 5,
+            "dominates": 2
         },
         {
             "age": 3,
-            "id": 6
+            "id": 6,
+            "dominates": 0
         },
         {
             "age": 5,
-            "id": 7
+            "id": 7,
+            "dominates": 16
         },
         {
             "age": 4,
-            "id": 8
+            "id": 8,
+            "dominates": 14
         },
         {
             "age": 7,
-            "id": 9
+            "id": 9,
+            "dominates": 16
         },
         {
             "age": 9,
-            "id": 10
+            "id": 10,
+            "dominates": 3
         },
         {
             "age": 6,
-            "id": 11
+            "id": 11,
+            "dominates": 10
         },
         {
             "age": 4,
-            "id": 12
+            "id": 12,
+            "dominates": 7
         },
         {
             "age": 9,
-            "id": 13
+            "id": 13,
+            "dominates": 14
         },
         {
             "age": 1,
-            "id": 14
+            "id": 14,
+            "dominates": 11
         },
         {
             "age": 9,
-            "id": 15
+            "id": 15,
+            "dominates": 11
         },
         {
             "age": 9,
-            "id": 16
+            "id": 16,
+            "dominates": 9
         },
         {
             "age": 4,
-            "id": 17
+            "id": 17,
+            "dominates": 7
         },
         {
             "age": 1,
-            "id": 18
+            "id": 18,
+            "dominates": 10
         },
         {
             "age": 1,
-            "id": 19
+            "id": 19,
+            "dominates": 7
         },
         {
             "age": 3,
-            "id": 20
+            "id": 20,
+            "dominates": 2
         },
         {
             "age": 3,
-            "id": 21
+            "id": 21,
+            "dominates": 1
         },
         {
             "age": 1,
-            "id": 22
+            "id": 22,
+            "dominates": 16
         },
         {
             "age": 7,
-            "id": 23
+            "id": 23,
+            "dominates": 9
         },
         {
             "age": 1,
-            "id": 24
+            "id": 24,
+            "dominates": 6
         },
         {
             "age": 9,
-            "id": 25
+            "id": 25,
+            "dominates": 6
         },
         {
             "age": 3,
-            "id": 26
+            "id": 26,
+            "dominates": 3
         },
         {
             "age": 4,
-            "id": 27
+            "id": 27,
+            "dominates": 1
         },
         {
             "age": 9,
-            "id": 28
+            "id": 28,
+            "dominates": 15
         }
     ],
     "links": [
